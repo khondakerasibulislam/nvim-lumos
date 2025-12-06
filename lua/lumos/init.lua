@@ -3,8 +3,11 @@ local M = {}
 function M.setup(opts)
   opts = opts or {}
 
-  -- Setup LSP
-  require('lumos.lsp').setup()
+  -- Setup LSP if lspconfig is available
+  local lsp_ok, lsp = pcall(require, 'lumos.lsp')
+  if lsp_ok then
+    lsp.setup()
+  end
 
   -- Setup Tree-sitter if available
   local ok, ts_configs = pcall(require, 'nvim-treesitter.configs')

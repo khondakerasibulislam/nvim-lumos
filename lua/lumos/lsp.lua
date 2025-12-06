@@ -1,8 +1,16 @@
 local M = {}
 
 function M.setup()
-  local lspconfig = require('lspconfig')
-  local configs = require('lspconfig.configs')
+  -- Check if lspconfig is available
+  local ok, lspconfig = pcall(require, 'lspconfig')
+  if not ok then
+    return
+  end
+
+  local configs_ok, configs = pcall(require, 'lspconfig.configs')
+  if not configs_ok then
+    return
+  end
 
   -- Register LUMOS LSP server
   if not configs.lumos then

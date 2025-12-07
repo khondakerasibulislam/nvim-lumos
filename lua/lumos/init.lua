@@ -2,6 +2,7 @@ local M = {}
 
 function M.setup(opts)
   opts = opts or {}
+  -- opts is reserved for future configuration options
 
   -- Setup LSP if lspconfig is available
   local lsp_ok, lsp = pcall(require, 'lumos.lsp')

@@ -26,7 +26,7 @@ function M.setup()
 
   -- Setup LSP
   lspconfig.lumos.setup({
-    on_attach = function(client, bufnr)
+    on_attach = function(_, bufnr)
       -- Enable completion
       vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 

@@ -27,7 +27,7 @@ jobs:
 
       - name: Run luacheck
         run: |
-          luacheck lua/ ftdetect/ --globals vim --read-globals-from-std --no-max-line-length
+          luacheck lua/ ftdetect/ --std lua51 --globals vim --no-max-line-length
 
       - name: Check Lua syntax
         run: |
@@ -166,6 +166,9 @@ jobs:
           # Test that filetype is set correctly
           cat > test_ft.lua << 'EOF'
           vim.opt.runtimepath:prepend('.')
+
+          -- Source the ftdetect script to register the autocmd
+          vim.cmd('source ftdetect/lumos.lua')
 
           -- Open the test file
           vim.cmd('edit test.lumos')

